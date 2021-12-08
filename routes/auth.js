@@ -27,9 +27,9 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .json({ errorMessage: "Please provide your username." });
   }
 
-  if (password.length < 8) {
+  if (password.length < 3) {
     return res.status(400).json({
-      errorMessage: "Your password needs to be at least 8 characters long.",
+      errorMessage: "Your password needs to be at least 3 characters long.",
     });
   }
 
@@ -94,9 +94,9 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
   // Here we use the same logic as above
   // - either length based parameters or we check the strength of a password
-  if (password.length < 8) {
+  if (password.length < 3) {
     return res.status(400).json({
-      errorMessage: "Your password needs to be at least 8 characters long.",
+      errorMessage: "Your password needs to be at least 3 characters long.",
     });
   }
 
