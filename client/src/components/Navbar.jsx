@@ -13,8 +13,8 @@ export const Navbar = () => {
       </Link>
       {isLoggedIn ? (
         <>
-          <Link to="/projects">
-            <button>Projects</button>
+          <Link to="/my-polls">
+            <button>My Polls</button>
           </Link>
           <button onClick={logoutUser}>Logout</button>
         </>
