@@ -58,7 +58,7 @@ export const CreatePollForm = () => {
           })}
         </div>
         <Button onClick={handleAddAnswer}>Add more Answers</Button>
-        <Button type="submit" onClick={handleSubmit}>Start Survey</Button>
+        <Button type="submit" onClick={handleSubmit}>Start Poll</Button>
       </form>
     </div>
   );

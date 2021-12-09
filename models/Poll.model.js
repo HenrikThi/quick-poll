@@ -13,6 +13,7 @@ const pollSchema = new Schema(
         votes: { type: Number, default: 0 },
       },
     ],
+    owner: String,
   },
   { timestamps: true }
 );
