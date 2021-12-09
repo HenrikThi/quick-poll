@@ -6,17 +6,20 @@ const userSchema = new Schema(
     email: {
       type: String,
       unique: true,
-      required: true
+      required: true,
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     password: {
       type: String,
-      required: true
-    }
-  });
+      required: true,
+    },
+    polls: [{ type: Schema.Types.ObjectId, ref: "Poll" }],
+  },
+  { timestamps: true }
+);
 
 const User = model("User", userSchema);
 
