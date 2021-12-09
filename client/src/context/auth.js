@@ -11,7 +11,7 @@ function AuthProviderWrapper(props) {
   const loginUser = (token) => {
     // store this token in local storage
     localStorage.setItem("authToken", token);
-    verifyStoredToken();
+    return verifyStoredToken();
   };
 
   const logoutUser = () => {
@@ -22,27 +22,25 @@ function AuthProviderWrapper(props) {
     setUser(null);
   };
 
-  const verifyStoredToken = () => {
+  const verifyStoredToken = async () => {
     // check local storage for an auth token
     const storedToken = localStorage.getItem("authToken");
     if (storedToken) {
-      axios
-        .get("api/auth/verify", {
+      try {
+        const res = await axios.get("api/auth/verify", {
           headers: { Authorization: `Bearer ${storedToken}` },
-        })
-        .then((response) => {
-          console.log(response);
-          const user = response.data;
-          setUser(user);
-          setIsLoggedIn(true);
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          // the token is invalid
-          setIsLoggedIn(false);
-          setUser(null);
-          setIsLoading(false);
         });
+        console.log(res);
+        const user = res.data;
+        setUser(user);
+        setIsLoggedIn(true);
+        setIsLoading(false);
+      } catch (err) {
+        // the token is invalid
+        setIsLoggedIn(false);
+        setUser(null);
+        setIsLoading(false);
+      }
     } else {
       // token is not available
       setIsLoading(false);

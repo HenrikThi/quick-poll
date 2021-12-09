@@ -25,8 +25,7 @@ export const Login = () => {
         console.log("bearer token:", response.data.authToken);
         const token = response.data.authToken;
         // call login user function from auth context
-        loginUser(token);
-        navigate("/");
+        loginUser(token).then(res => navigate("/"))
       })
       .catch((err) => {
         const errorDescrition = err.response.data.message;
