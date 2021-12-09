@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { TextInput } from "../components/TextInput";
+import { Button } from "../components/Button";
 
 export const Signup = () => {
   const [email, setEmail] = useState("");
@@ -31,23 +33,61 @@ export const Signup = () => {
   };
 
   return (
-    <div>
-      <h1>Signup</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Email: </label>
-        <input type="text" name="email" value={email} onChange={handleEmail} />
-        <label>Password: </label>
-        <input type="password" value={password} onChange={handlePassword} />
-        <label>Name: </label>
-        <input type="text" value={name} onChange={handleName} />
-
-        <button type="submit">Sign Up</button>
-      </form>
-
-      {errorMessage && <p>{errorMessage}</p>}
-
-      <p>Already have an account?</p>
-      <Link to="/login">Login</Link>
-    </div>
+    <section class="text-black body-font bg-background-nft bg-cover h-full">
+      <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+        <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+          <h1 class="title-font font-medium text-3xl text-black">SurvIt</h1>
+          <p class="leading-relaxed mt-4 text-gray-800">
+            Manage and access popup surveys. Get quick feedback faster than ever
+            before.
+          </p>
+        </div>
+        <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+          <div class="relative mb-4">
+            <form onSubmit={handleSubmit}>
+              <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">
+                Sign Up
+              </h2>
+              <div class="relative mb-4">
+                <TextInput
+                  id="email"
+                  label="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div class="relative mb-4">
+                <TextInput
+                  id="name"
+                  label="Username"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+              <div class="relative mb-4">
+                <TextInput
+                  id="password"
+                  label="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <Button tailwind="w-full" type="submit">
+                Login
+              </Button>
+            </form>
+            {errorMessage && (
+              <p class="text-xs text-red-500 mt-3">{errorMessage}</p>
+            )}
+            <p class="text-xs text-gray-500 mt-3">
+              Already have an account?{" "}
+              <Link class="text-sm text-blue-500 hover:underline" to="/login">
+                Click here to login.
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
