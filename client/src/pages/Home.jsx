@@ -27,13 +27,13 @@ export const Home = () => {
   if (!isLoggedIn) return <Navigate to="/login" />;
   if (!user) return <></>;
   return (
-    <>
-      <div>
+    <div className="bg-gray-200 h-screen mt-3">
+      <div className="flex justify-center bg-white p-5">
         <CreatePollForm />
       </div>
-      <div>
+      <div className="pt-5 p1">
         <PollList polls={user.polls} />
       </div>
-    </>
+    </div>
   );
 };
