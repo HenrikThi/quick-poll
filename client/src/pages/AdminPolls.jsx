@@ -32,6 +32,7 @@ export const AdminPolls = () => {
   return (
     <div className="flex justify-around flex-wrap mt-1">
       <div className="flex flex-col">
+        <h1 className="title-font text-3xl font-medium m-5 text-center">{poll.question}</h1>
         <Chart
           chartType="ColumnChart"
           loader={<div>Loading Chart</div>}
@@ -50,7 +51,7 @@ export const AdminPolls = () => {
             ...chartData,
           ]}
           options={{
-            title: poll.question,
+            // title: poll.question,
             width: 1200,
             height: 800,
             bar: { groupWidth: "95%" },
@@ -59,13 +60,12 @@ export const AdminPolls = () => {
           // For tests
           rootProps={{ "data-testid": "6" }}
         />
-        <Button className="" onClick={() => updatePoll()}>Refresh</Button>
+        <Button className="" onClick={() => updatePoll()}>
+          Refresh
+        </Button>
       </div>
       <div className="flex justify-center items-center flex-col">
-        <QRCode
-          size={521}
-          value={pollLink}
-        />
+        <QRCode size={521} value={pollLink} />
         <p className="mt-2">{pollLink}</p>
       </div>
     </div>
