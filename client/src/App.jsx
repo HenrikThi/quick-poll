@@ -6,6 +6,7 @@ import { Login } from "./pages/Login";
 import { Navbar } from "./components/Navbar";
 import { Home } from "./pages/Home";
 import { Polls } from "./pages/Polls";
+import { AdminPolls } from "./pages/AdminPolls";
 
 function App() {
   axios
@@ -21,6 +22,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/polls/:id" element={<Polls />} />
+        <Route path="/admin/:id" element={<AdminPolls />} />
       </Routes>
     </div>
   );

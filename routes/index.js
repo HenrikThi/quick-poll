@@ -8,6 +8,13 @@ router.get("/", (req, res, next) => {
   res.json("All good in here");
 });
 
+router.get("/users/:id", async (req, res, next) => {
+  console.log({ params: req.params });
+  const user = await User.findById(req.params.id).populate("polls");
+  user.password = "";
+  res.json(user);
+});
+
 router.get("/polls/:id", async (req, res, next) => {
   try {
     const poll = await Poll.findById(req.params.id);
@@ -50,13 +57,15 @@ router.post("/answers", async (req, res, next) => {
   const { pollId, selectedAnswer } = req.body;
   const poll = await Poll.findById(pollId);
 
-  for(answer of poll.answers){
-    if(answer.id == selectedAnswer){
+  for (answer of poll.answers) {
+    if (answer.id == selectedAnswer) {
       answer.votes = answer.votes + 1;
     }
   }
 
-Poll.findByIdAndUpdate(pollId, { answers: poll.answers }).then(res => console.log(res)).catch(err => console.log(err))
+  Poll.findByIdAndUpdate(pollId, { answers: poll.answers })
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err));
   res.status(400);
 });
 

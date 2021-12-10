@@ -10,6 +10,9 @@ export const Polls = (props) => {
   const [answered, setAnswered] = useState(false);
 
   useEffect(() => {
+    if (localStorage.getItem(id)) {
+      setAnswered(true);
+    }
     axios.get(`/api/polls/${id}`).then((res) => {
       setPoll(res.data);
     });
@@ -32,6 +35,7 @@ export const Polls = (props) => {
         console.log(err);
       });
     setAnswered(true);
+    localStorage.setItem(id, true);
   };
 
   return !poll ? (

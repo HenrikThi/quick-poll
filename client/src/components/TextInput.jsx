@@ -9,7 +9,7 @@ export const TextInput = (props) => {
         </label>
       )}
       <input
-        type="text"
+        type={ props.type ? props.type : "text"}
         value={props.value}
         onChange={props.onChange}
         id={props.id}
