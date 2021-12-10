@@ -32,9 +32,9 @@ export const Signup = () => {
     <section className="text-black body-font bg-background-nft bg-cover h-full">
       <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
         <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-          <h1 className="title-font font-medium text-3xl text-black">SurvIt</h1>
+          <h1 className="title-font font-medium text-3xl text-black">QuickPoll</h1>
           <p className="leading-relaxed mt-4 text-gray-800">
-            Manage and access popup surveys. Get quick feedback faster than ever
+            Manage and access poll. Get quick feedback faster than ever
             before.
           </p>
         </div>
