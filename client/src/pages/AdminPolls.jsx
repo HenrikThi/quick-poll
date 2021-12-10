@@ -30,7 +30,7 @@ export const AdminPolls = () => {
   if (!isLoggedIn) return <Navigate to="/login" />;
   if (!poll) return <></>;
   return (
-    <div className="flex justify-around flex-wrap">
+    <div className="flex justify-around flex-wrap mt-1">
       <div className="flex flex-col">
         <Chart
           chartType="ColumnChart"

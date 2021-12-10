@@ -11,6 +11,7 @@ export const PollList = (props) => {
 
   return (
     <div className="flex flex-col items-center">
+        <h1 className="title-font text-3xl font-medium">Access previous polls</h1>
       {props.polls.map((m) => {
         return (
           <div key={m._id} class="p-2 sm:w-1/2 w-full">

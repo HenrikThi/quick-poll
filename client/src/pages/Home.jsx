@@ -29,28 +29,7 @@ export const Home = () => {
   return (
     <>
       <div>
-        <h1 className="text-red-600">Home</h1>
-        <Button onClick={() => console.log(text)} color="primary">
-          Tests
-        </Button>
-        <Button color="secondary">Tests</Button>
-        <TextInput
-          id="testId"
-          label="Register here"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-      </div>
-      <div>
         <CreatePollForm />
-      </div>
-      <div>
-        <Link
-          className="text-sm text-blue-500 hover:underline"
-          to="/admin/61b2361ce9190b203ee1d0f8"
-        >
-          Click here to example poll.
-        </Link>
       </div>
       <div>
         <PollList polls={user.polls} />
